@@ -49,7 +49,6 @@ public class Tournament {
 			}
 			System.out.println(bots.get(i).getClass().getSimpleName() + ": " + wins);
 		}
-
 	}
 
 }
