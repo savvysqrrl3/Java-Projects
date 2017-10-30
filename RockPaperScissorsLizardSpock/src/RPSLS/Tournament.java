@@ -1,5 +1,7 @@
 package RPSLS;
 
+// See also: http://www.samkass.com/theories/RPSSL.html
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -19,7 +21,8 @@ public class Tournament {
 			player2.opponentsLastPlay(move1);	
 		}
 		
-		return Integer.signum(runningTotal);
+//		return Integer.signum(runningTotal);
+		return runningTotal;
 	}
 	
 	public static void main(String[] args) {
@@ -43,7 +46,7 @@ public class Tournament {
 		for(int i = 0; i < bots.size(); i++) {
 			int wins = 0;
 			for(int j = 0; j < results[i].length; j++) {
-				if(results[i][j] == 1) {
+				if(results[i][j] > 0) {
 					wins++;
 				}
 			}
