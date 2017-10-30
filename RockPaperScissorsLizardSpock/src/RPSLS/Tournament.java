@@ -11,6 +11,10 @@ public class Tournament {
 	private static int NUMBER_OF_ROUNDS = 100; 
 	
 	private static int match(Player player1, Player player2) {
+		return match(player1, player2, false);
+	}
+	
+	private static int match(Player player1, Player player2, boolean log) {
 		int runningTotal = 0;
 		
 		for(int i = 0; i < NUMBER_OF_ROUNDS; i++) {
@@ -19,9 +23,16 @@ public class Tournament {
 			runningTotal += Play.results(move1, move2);
 			player1.opponentsLastPlay(move2);
 			player2.opponentsLastPlay(move1);	
+			
+			if(log) {
+				System.out.printf("%s played %s; %s played %s \n", player1.getClass().getSimpleName(), move1, player2.getClass().getSimpleName(), move2);
+			}
 		}
 		
-//		return Integer.signum(runningTotal);
+		if(log) {
+			System.out.println();
+		}
+		
 		return runningTotal;
 	}
 	
@@ -36,6 +47,9 @@ public class Tournament {
 		for(int bot1 = 0; bot1 < bots.size() - 1; bot1++) {
 			for(int bot2 = bot1 + 1; bot2 < bots.size(); bot2++ ) {
 				int res = match(bots.get(bot1), bots.get(bot2));
+				// For testing, consider using match(bots.get(bot1), bots.get(bot2), true)
+				// The extra flag will print each bot's play to the console.
+				
 				results[bot1][bot2] = res;
 				results[bot2][bot1] = -res;
 			}
