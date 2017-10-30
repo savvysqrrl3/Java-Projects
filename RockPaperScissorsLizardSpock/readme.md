@@ -12,3 +12,58 @@ You'll probably also want to add your bot in the `main` method in `Tournament.ja
 
 When you're done, make a pull request!  At the end of the day, we'll run the tournament, and the team whose bot has the best score will win a prize, maybe!
 
+* [Opening in Spring Tools Suite](#opening-in-spring-tools-suite)
+* [What's The Deal With That `Play` Thing?]()
+* [Example Bots](#example-bots)
+
+### Opening in Spring Tools Suite
+
+### What's The Deal With That `Play` Thing?
+
+### Example Bots
+
+```java
+public class BartSimpson implements Player {
+
+	@Override
+	public Play shoot() {
+		// Good ol' rock.  Nothing beats that.
+		return Play.ROCK;
+	}
+
+	@Override
+	public void opponentsLastPlay(Play play) {
+	}
+}
+
+public class BleedingEdge implements Player {
+
+	@Override
+	public Play shoot() {
+		// Only use the newest, hottest technology.
+		if(Math.random() < 0.5) {
+			return Play.LIZARD;
+		} else {
+			return Play.SPOCK;
+		}
+	}
+
+	@Override
+	public void opponentsLastPlay(Play play) {
+	}
+}
+
+public class CopyCat implements Player {
+	private Play last = Play.PAPER; 
+
+	@Override
+	public Play shoot() {
+		// Always plays whatever the opponent played last.  Starts with paper to beat Bart.
+		return last;
+	}
+
+	@Override
+	public void opponentsLastPlay(Play play) {
+		this.last = play;
+	}
+}```
