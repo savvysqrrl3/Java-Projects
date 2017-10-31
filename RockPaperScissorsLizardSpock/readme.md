@@ -20,7 +20,9 @@ When you're done, make a pull request!  At the end of the day, we'll run the tou
 
 ### Opening in Spring Tools Suite
 
-After you've cloned this project, follow these steps to add it to Spring Tools Suite:
+You can find (somewhat terse) instructions for using the built-in Sprint Tools Git integration [here](http://ojitha.blogspot.com/2013/04/how-to-github-projects-in-spring-tool.html).
+
+Alternately, to do things the less correct but possibly easier way, after you've forked and cloned this project, follow these steps to add it to Spring Tools Suite:
 
 * Select File...Open Projects from File System...
 * Click the Directory... button next to the long "Import source" dropdown.
