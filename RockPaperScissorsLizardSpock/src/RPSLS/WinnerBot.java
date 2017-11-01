@@ -12,7 +12,7 @@ public class WinnerBot implements Player{
 	
 	@Override
 	public Play shoot() {
-		if (allPlays.size() >= 990) {
+		if (allPlays.size() >= 995) {
 			allPlays.clear();
 			recentPlays.clear();
 		}
@@ -57,22 +57,23 @@ public class WinnerBot implements Player{
 		int paper = 0;
 		int scissors = 0;
 		int spock = 0;
+		int weight = (allPlays.size() / 10) + 3;
 		
 		for(Play play : recentPlays) {
 			if(play == Play.ROCK) {
-				rock += 3;
+				rock += weight;
 			}
 			if(play == Play.PAPER) {
-				paper += 3;
+				paper += weight;
 			}
 			if(play == Play.SPOCK) {
-				spock += 3;
+				spock += weight;
 			}
 			if(play == Play.SCISSORS) {
-				scissors += 3;
+				scissors += weight;
 			}
 			if(play == Play.LIZARD) {
-				lizard += 3;
+				lizard += weight;
 			}
 		}
 		
@@ -101,12 +102,15 @@ public class WinnerBot implements Player{
 		plays.add(new Tuple(Play.LIZARD, lizard));
 		
 		Collections.sort(plays);
-		return plays.get(0).getPlay();
+//		System.out.println("Index 0: " + plays.get(0).getNum());
+//		System.out.println("Index 4: " + plays.get(4).getNum());
+		Play win = getWinningPlay(plays.get(4).getPlay());
+		return win;
 		
 	}
 	@Override
 	public void opponentsLastPlay(Play play) {
-		if(recentPlays.size() < 10) {
+		if(recentPlays.size() < 5) {
 			recentPlays.add(play);
 		} else {
 			Play removedPlay = recentPlays.remove(0);
