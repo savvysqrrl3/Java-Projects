@@ -12,6 +12,10 @@ public class WinnerBot implements Player{
 	
 	@Override
 	public Play shoot() {
+		if (allPlays.size() >= 990) {
+			allPlays.clear();
+			recentPlays.clear();
+		}
 		if (recentPlays.size() > 1) {
 			Play lastPlay = recentPlays.get(0);
 			int count = 0;
