@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Tournament {
 	private static ArrayList<Player> bots = new ArrayList<>();
 
-	private static int NUMBER_OF_ROUNDS = 100; 
+	private static int NUMBER_OF_ROUNDS = 1000; 
 	
 	private static int match(Player player1, Player player2) {
 		return match(player1, player2, false);
