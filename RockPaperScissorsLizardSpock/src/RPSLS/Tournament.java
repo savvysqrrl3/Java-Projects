@@ -40,6 +40,7 @@ public class Tournament {
 		bots.add(new BartSimpson());
 		bots.add(new BleedingEdge());
 		bots.add(new CopyCat());
+		bots.add(new Cyclist());
 		
 		System.out.println(bots.size());
 		int[][] results = new int[bots.size()][bots.size()];
