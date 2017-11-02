@@ -42,12 +42,14 @@ public class Tournament {
 		bots.add(new CopyCat());
 		bots.add(new Cyclist());
 		bots.add(new Squirrel());
+		bots.add(new WinnerBot());
+
 		
 		System.out.println(bots.size());
 		int[][] results = new int[bots.size()][bots.size()];
 		
 		for(int bot1 = 0; bot1 < bots.size() - 1; bot1++) {
-			for(int bot2 = 4; bot2 < bots.size(); bot2++ ) {
+			for(int bot2 = bot1 + 1; bot2 < bots.size(); bot2++ ) {
 				int res = match(bots.get(bot1), bots.get(bot2));
 				// For testing, consider using 
 //				match(bots.get(bot1), bots.get(bot2), true);
