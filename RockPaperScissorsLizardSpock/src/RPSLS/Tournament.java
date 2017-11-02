@@ -47,9 +47,10 @@ public class Tournament {
 		int[][] results = new int[bots.size()][bots.size()];
 		
 		for(int bot1 = 0; bot1 < bots.size() - 1; bot1++) {
-			for(int bot2 = bot1 + 1; bot2 < bots.size(); bot2++ ) {
+			for(int bot2 = 4; bot2 < bots.size(); bot2++ ) {
 				int res = match(bots.get(bot1), bots.get(bot2));
-				// For testing, consider using match(bots.get(bot1), bots.get(bot2), true)
+				// For testing, consider using 
+//				match(bots.get(bot1), bots.get(bot2), true);
 				// The extra flag will print each bot's play to the console.
 				
 				results[bot1][bot2] = res;
