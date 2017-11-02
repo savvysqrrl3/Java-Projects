@@ -42,6 +42,7 @@ public class Squirrel implements Player {
 	}
 	
 	public Play otherBotStrategy() {
+//		add more strategies to this method!
 		return Play.SPOCK;
 	}
 	
@@ -62,6 +63,7 @@ public class Squirrel implements Player {
 			Play[] plays = getCyclist();
 			counter = (counter + 1) % 5;
 			return plays[counter];
+//			Will this keep looping for as many rounds as needed?
 		}
 	}
 	
@@ -75,7 +77,13 @@ public class Squirrel implements Player {
 			Play[] plays = getCopycat();
 			counter = (counter + 1) % 10;
 			return plays[counter];
+//			Will this keep looping, or only do it once?
 		}
+	}
+	
+	public Play eliminateBEdgeStrategy() {
+//		add more strategies to this method!
+		return Play.SPOCK;
 	}
 
 	@Override
@@ -83,11 +91,11 @@ public class Squirrel implements Player {
 
 		ArrayList<Play> allPlays = this.getAllOpponentMoves();
 		round++;
-		System.out.println(round);
+//		System.out.println(round);
 		if(round > 1000) {
 			round = 1;
+//			Also need to reset arrays back to empty after playing each opponent
 		}
-//		System.out.println("*************");
 		if(round == 1) {
 
 			return Play.PAPER;
@@ -120,6 +128,7 @@ public class Squirrel implements Player {
 				return Play.LIZARD;
 			}
 		}
+//		add eliminateBEdgeStrategy here
 		else {
 			return this.otherBotStrategy();
 		}
